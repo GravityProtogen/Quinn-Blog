@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fundo preto */
+    color: #00FF00; /* Texto verde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.computer-image {
+    width: 300px; /* Ajuste o tamanho da imagem conforme necessário */
+    margin-bottom: 20px; /* Espaço abaixo da imagem */
+}
+
+.input-area {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #00FF00;
+    background-color: #000000;
+    color: #00FF00;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #00FF00;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #009900;
+}
+.hidden-text {
+    margin-top: 20px;
+}
+
+.camouflage {
+    color: #000000; /* Mesma cor do fundo */
+}
+
+.camouflage::selection {
+    background-color: #00FF00; /* Cor do fundo ao selecionar */
+    color: #000000; /* Cor do texto ao selecionar */
+}

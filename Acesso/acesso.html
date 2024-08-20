@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso</title>
+    <link rel="stylesheet" href="acessostyle.css">
+</head>
+<body>
+    <div class="container">
+        <img src="./imgs/pc antigo.png" alt="Imagem de um computador antigo" class="computer-image">
+        <p>3</p>
+        <div class="input-area">
+            <input type="text" id="access-code" placeholder="Digite aqui...">
+            <button onclick="checkAccess()">Enviar</button>
+            <div class="hidden-text">
+                <p class="camouflage">Caso necessario, dicas serão mostradas aqui.</p>
+                <p class="camouflage">A bio é um ótimo lugar para começar.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAccess() {
+            var code = document.getElementById('access-code').value.toLowerCase();
+            
+            // Usar switch para verificar o código de acesso
+            switch(code) {
+                case "codigo1":
+                    window.location.href = "./imgs/cripto.png"; // Redireciona para a primeira página
+                    break;
+                case "desalmados":
+                    window.location.href = "./results/uno.html"; // Redireciona para a segunda página
+                    break;
+                case "codigo3":
+                    window.location.href = "pagina3.html"; // Redireciona para a terceira página
+                    break;
+                default:
+                    alert("Código incorreto. Tente novamente.");
+            }
+        }
+    </script>
+    
+</body>
+</html>
