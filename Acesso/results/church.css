@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: 'Courier New', Courier, monospace; /* Retro font */
+    background: url('https://www.shutterstock.com/image-photo/glorious-divine-intelligence-vortexing-starlight-600nw-2325996385.jpg') no-repeat center center fixed;
+    background-size: cover; /* Cover the entire background */
+    color: #fff; /* White text */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
+/* Header Styles */
+header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff; /* White text */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+    z-index: 10; /* Ensure header is above other content */
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* Main Content Styles */
+main {
+    position: relative;
+    z-index: 1; /* Ensure main content is below the header but above the footer */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
+.gif {
+    position: absolute;
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* GIF positioning */
+.gif:nth-of-type(1) { top: 1%; left: 10%;  }
+.gif:nth-of-type(2) { top: 10%; left: 45%; }
+.gif:nth-of-type(3) { top: 80%; left: 45%; }
+.gif:nth-of-type(4) { top: 40%; left: 10%; width:20%; }
+.gif:nth-of-type(5) { top: 90%; left: 10%; width: 25%;  }
+.gif:nth-of-type(6) { top: 1%; left: 20%; }
+.gif:nth-of-type(7) { top: 80%; left: 60%; }
+.gif:nth-of-type(8) { top: 20%; left: 25%; }
+.gif:nth-of-type(9) { top: 60%; left: 80%; }
+.gif:nth-of-type(10) { top: 57%; left: 35%; aspect-ratio: unset ; width: 30%; }
+.gif:nth-of-type(11) { top: 10%; left: 37%; width: 25%;}
+.gif:nth-of-type(12) { top: 60%; left: 90%; }
+.gif:nth-of-type(13) { top: 20%; left: 90%; }
+.gif:nth-of-type(14) { top: 55%; left: 50%; }
+/* Add more positioning rules as needed */
+
+/* Centered Text Styles */
+.centered-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact center */
+    color: gold; /* Yellow text */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Comic Sans font */
+    font-size: 2em; /* Adjust size as needed */
+    text-align: center;
+    z-index: 1; /* Ensure it is above other content */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.centered-text2 {
+    position: absolute;
+    top: 60%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact center */
+    color: gold; /* Yellow text */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Comic Sans font */
+    font-size: 2em; /* Adjust size as needed */
+    text-align: center;
+    z-index: 1; /* Ensure it is above other content */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+/* Footer Styles */
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff; /* White text */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+    z-index: 10; /* Ensure footer is above other content */
+}
