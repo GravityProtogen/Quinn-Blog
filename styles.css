@@ -37,7 +37,18 @@ header {
     from, to { border-color: transparent; }
     50% { border-color: #ffffff; }
 }
+/* Estilo para o link do ponto */
+.dot-link {
+    text-decoration: none;
+    color: #ffffff; /* Cor do ponto */
+    font-size: 20px; /* Tamanho do ponto */
+    margin-left: 5px; /* Espaçamento entre o texto e o ponto */
+    vertical-align: middle; /* Alinhar o ponto verticalmente ao centro do texto */
+}
 
+.dot-link:hover {
+    color: #cccccc; /* Cor do ponto ao passar o mouse */
+}
 /* Estilo das seções */
 .section {
     padding: 20px;
