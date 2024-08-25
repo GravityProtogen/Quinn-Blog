@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peko Pega</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87ceeb;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #gameArea {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #basket {
+            position: absolute;
+            bottom: 20px;
+            width: 100px;
+            height: 50px;
+            background-color: #8B4513;
+            left: calc(50% - 50px);
+            transition: left 0.1s ease;
+        }
+
+        .fruit {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: white;
+        }
+        #texto{
+            position: absolute;
+            top: 1px;
+            left: 20px;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <div id="basket"></div>
+        <div id="texto">Pegue os itens de Ocultismo!</div>
+        <div id="score">Pontuação: 0</div>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const basket = document.getElementById('basket');
+        const scoreElement = document.getElementById('score');
+        let score = 0;
+
+        // Array of fruit images
+        const fruitImages = [
+            './sprites/magic_lamp.png',
+            './sprites/awakened_feather.png',
+            './sprites/soul_shard.png',
+            './sprites/chalk.png',
+            './sprites/book_of_binding.png',
+        ];
+
+        // Move the basket with the mouse
+        document.addEventListener('mousemove', (event) => {
+            const basketWidth = basket.offsetWidth;
+            const newLeft = event.clientX - basketWidth / 2;
+            
+            if (newLeft >= 0 && newLeft <= window.innerWidth - basketWidth) {
+                basket.style.left = newLeft + 'px';
+            }
+        });
+
+        // Function to create a fruit
+        function createFruit() {
+            const fruit = document.createElement('div');
+            fruit.className = 'fruit';
+            
+            // Randomly select a fruit image
+            const randomImage = fruitImages[Math.floor(Math.random() * fruitImages.length)];
+            fruit.style.backgroundImage = `url(${randomImage})`;
+            
+            fruit.style.left = Math.random() * (window.innerWidth - 30) + 'px';
+            gameArea.appendChild(fruit);
+            moveFruit(fruit);
+        }
+
+        // Function to move the fruit downwards
+        function moveFruit(fruit) {
+            let interval = setInterval(() => {
+                const fruitRect = fruit.getBoundingClientRect();
+                const basketRect = basket.getBoundingClientRect();
+
+                if (fruitRect.bottom >= window.innerHeight) {
+                    clearInterval(interval);
+                    gameArea.removeChild(fruit);
+                } else if (
+                    fruitRect.bottom >= basketRect.top &&
+                    fruitRect.left >= basketRect.left &&
+                    fruitRect.right <= basketRect.right
+                ) {
+                    clearInterval(interval);
+                    gameArea.removeChild(fruit);
+                    score++;
+                    scoreElement.textContent = 'Score: ' + score;
+                } else {
+                    fruit.style.top = fruitRect.top + 5 + 'px';
+                }
+            }, 50);
+        }
+
+        // Create fruits at intervals
+        setInterval(createFruit, 1000);
+    </script>
+</body>
+</html>
