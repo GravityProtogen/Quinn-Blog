@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             audioContext.resume().then(() => {
                 if (audio.paused) {
                     audio.play().then(() => {
-                        playButton.textContent = 'Playing...';
+                        playButton.textContent = 'Paraben...';
                         playButton.disabled = true;
                     }).catch(error => {
                         console.error("Audio playback failed: ", error);
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } else if (audio.paused) {
             audio.play().then(() => {
-                playButton.textContent = 'Playing...';
+                playButton.textContent = 'Parabens...';
                 playButton.disabled = true;
             }).catch(error => {
                 console.error("Audio playback failed: ", error);
