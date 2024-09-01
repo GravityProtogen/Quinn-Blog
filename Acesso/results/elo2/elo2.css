@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4efe3;
+    color: #4e3620;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styles */
+header {
+    background-color: #d1c4b1;
+    padding: 10px 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #4e3620;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #a79c85;
+    border-radius: 5px;
+}
+
+/* Hero Section Styles */
+.hero {
+    width: 100%;
+    height: 60vh; /* 60% of viewport height */
+    background-image: url(./images/pots.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4efe3;
+    text-align: center;
+    position: relative;
+}
+
+.hero-text {
+    background-color: rgba(78, 54, 32, 0.7); /* Dark overlay with transparency */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #f4efe3;
+    background-color: #4e3620;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #6b5633;
+}
+
+/* Vine Decoration */
+.vine-decoration {
+    position: absolute;
+    top: 64vh;
+    left: 35vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.vine-decorationtwo {
+    position: absolute;
+    top: 64vh;
+    right: 35vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.vine-decoration img {
+    width: 150px;
+    height: auto;
+}
+.vine-decorationtwo img {
+    width: 150px;
+    height: auto;
+    transform: scaleX(-1);
+}
+
+/* Intro Section Styles */
+.intro {
+    text-align: center;
+    padding: 50px 20px;
+    color: #4e3620;
+}
+
+/* Featured Remedies Section Styles */
+.featured-remedies {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.featured-remedies h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #4e3620;
+}
+
+.remedy-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.remedy-item {
+    background-color: #e8dfc9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.remedy-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.remedy-item h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #4e3620;
+}
+
+.remedy-item p {
+    font-size: 1em;
+    color: #6b5633;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #d1c4b1;
+    color: #4e3620;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}

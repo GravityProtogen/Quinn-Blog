@@ -14,8 +14,7 @@
             <input type="text" id="access-code" placeholder="Digite aqui...">
             <button onclick="checkAccess()">Enviar</button>
             <div class="hidden-text">
-                <p class="camouflage">Caso necessario, dicas serão mostradas aqui.</p>
-                <p class="camouflage">A bio é um ótimo lugar para começar.</p>
+                <p class="camouflage">Que tal tentar nomes</p>
             </div>
         </div>
     </div>
@@ -26,8 +25,8 @@
             
             // Usar switch para verificar o código de acesso
             switch(code) {
-                case "codigo1":
-                    window.location.href = "./imgs/cripto.png";
+                case "primeirotiro":
+                    window.location.href = "./results/primeiro/primeiroparabens.html";
                     break;
                 case "desalmados":
                     window.location.href = "./imgs/uno.png"; 
@@ -58,9 +57,6 @@
                     break;
                 case "esoterica":
                     window.location.href = "https://web.archive.org/web/20091020074402/http://geocities.com/white_magick_666/"; 
-                    break;
-                case "arcana":
-                    window.location.href = "https://web.archive.org/web/20090728082432/http://geocities.com/magicmarketplace/"; 
                     break;
                 case "arcana":
                     window.location.href = "https://web.archive.org/web/20090728082432/http://geocities.com/magicmarketplace/"; 
@@ -109,9 +105,15 @@
                     break;
                 case "altair":
                     window.location.href = "./imgs/altair.mp4"; 
-                    break;                                                           
+                    break;
+                case "bayle":
+                    window.location.href = "./results/bayle.html"
+                    break;    
+                case "eloise":
+                    window.location.href = "./results/eloise.html"
+                    break;                                                               
                 default:
-                    alert("Código incorreto. Tente novamente.");
+                    alert("Seu codigo. não ser certo. que tal tentar. outro. hehe");
             }
         }
     </script>

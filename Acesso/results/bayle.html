@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Button</title>
+    <style>
+        body {
+            background-color: #000000; /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button-image {
+            cursor: pointer;
+            width: 200px; /* Adjust the size of the image */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Image button -->
+    <img src="../imgs/abstinencia.webp" alt="Click to Play Audio" class="button-image" onclick="playAudio()">
+    
+    <!-- Audio element -->
+    <audio id="background-audio" loop>
+        <source src="../imgs/abstinencia.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function playAudio() {
+            var audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+</html>
