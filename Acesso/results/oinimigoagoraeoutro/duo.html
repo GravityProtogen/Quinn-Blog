@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duo</title>
+    <script src="duo.js"></script>
+    <style>
+        body {
+            background-color: #000; /* Fundo preto */
+            color: #32CD32; /* Texto verde neon */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1.2em;
+            width: 300px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: #32CD32;
+        }
+
+        .input-with-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto;
+        }
+
+        .input-with-link a {
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .feedback {
+            margin-top: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #32CD32;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digite os Códigos</h1>
+        <input type="text" id="code1" placeholder="Código 1" oninput="checkCode('code1', 'dica1', 'feedback1')">
+        <div id="feedback1" class="feedback"></div>
+
+        <!-- Área com link ao lado do input -->
+        <div class="input-with-link">
+            <a href="./cacapalavras.png"><p>Caçai-vos</p></a>
+            <input type="text" id="code2" placeholder="Código 2" oninput="checkCode('code2', 'dica2', 'feedback2')">
+        </div>
+        <div id="feedback2" class="feedback"></div>
+
+        <input type="text" id="code3" placeholder="Código 3" oninput="checkCode('code3', 'dica3', 'feedback3')">
+        <div id="feedback3" class="feedback"></div>
+
+        <br>
+        <button onclick="finalCheck()">Enviar</button>
+    </div>
+</body>
+</html>
