@@ -74,16 +74,22 @@ main {
 }
 .centered-text2 {
     position: absolute;
-    top: 60%; /* Center vertically */
-    left: 50%; /* Center horizontally */
+    top: 60%; /* Keep it centered vertically */
+    left: 50%; /* Keep it centered horizontally */
     transform: translate(-50%, -50%); /* Adjust for exact center */
-    color: gold; /* Yellow text */
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Comic Sans font */
-    font-size: 2em; /* Adjust size as needed */
+    color: gold; /* Button text color */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with slight transparency */
+    border: 2px solid gold; /* Gold border */
+    padding: 10px 20px; /* Add padding for button feel */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Keep the Comic Sans font */
+    font-size: 2em; /* Keep the font size the same */
     text-align: center;
     z-index: 1; /* Ensure it is above other content */
+    cursor: pointer; /* Change cursor to pointer on hover */
     white-space: nowrap; /* Prevent text wrapping */
+    border-radius: 5px; /* Rounded button corners */
 }
+
 
 
 /* Footer Styles */
