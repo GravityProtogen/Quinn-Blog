@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Page with Green Text</title>
+    <style>
+        body {
+            background-color: black; /* Black background */
+            color: limegreen; /* Green text */
+            font-family: 'Courier New', Courier, monospace; /* Retro font style */
+            text-align: center; /* Center align the text */
+            padding: 50px;
+        }
+        input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.2em;
+            width: 300px;
+            border: 1px solid limegreen;
+            background-color: black;
+            color: limegreen;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Três tres 3 tres three trois drei individuos foram passear olhando aos seus arredores, eles andaram juntos em uma madrugada, ao olhar para os ceus
+        um uno one un eins 1, Alberto, olhou o sol fervendo no calor das 12 horas, outro, Beto, olhou para o chao e viu a lua ser refletida em uma poça de agua fria perto
+        e o ultimo, Carlos, olhou e viu nada, pois para ele, tudo que os outros olharam, ele já havia perdido a muito tempo.
+
+        <br>O que os 3 três tres tres three trois drei individuos têm em igual, mas que de um deles não é igual aos outros?
+    </h1>
+
+    <input type="text" id="answerInput" placeholder="Digite sua resposta" autocomplete="off">
+    <div id="feedback" class="feedback"></div>
+
+    <script>
+        const correctAnswers = ["olho", "olhos"];
+        const feedbackElement = document.getElementById('feedback');
+
+        document.getElementById('answerInput').addEventListener('input', function() {
+            const userInput = this.value.toLowerCase();
+            if (correctAnswers.includes(userInput)) {
+                feedbackElement.textContent = "✔️ Resposta correta! Redirecionando...";
+                feedbackElement.style.color = "limegreen";
+
+                // Redirecionar após 2 segundos
+                setTimeout(() => {
+                    window.location.href = "./They_sure_saw_a_lot_didnt_they.mp4"; 
+                }, 2000);
+            } else {
+                feedbackElement.textContent = "❌ Resposta incorreta. Tente novamente.";
+                feedbackElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

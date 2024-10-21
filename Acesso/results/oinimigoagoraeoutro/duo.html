@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duo</title>
+    <title>Code Entry</title>
     <script src="duo.js"></script>
     <style>
         body {
-            background-color: #000; /* Fundo preto */
-            color: #32CD32; /* Texto verde neon */
+            background-color: #000; /* Black background */
+            color: #32CD32; /* Neon green text */
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -26,9 +26,25 @@
             margin-bottom: 20px;
         }
 
+        .input-with-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-with-link a {
+            color: #32CD32;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+
+        .input-with-link a:hover {
+            text-decoration: underline;
+        }
+
         input {
-            display: block;
-            margin: 10px auto;
             padding: 10px;
             font-size: 1.2em;
             width: 300px;
@@ -38,56 +54,71 @@
             color: #32CD32;
         }
 
-        .input-with-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px auto;
-        }
-
-        .input-with-link a {
-            margin-right: 10px;
-            text-decoration: none;
-        }
-
         .feedback {
             margin-top: 5px;
             font-size: 1em;
         }
 
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #32CD32;
-            color: #000;
-            border: none;
-            cursor: pointer;
+        .hidden {
+            display: none;
         }
 
-        button:hover {
-            background-color: #228B22;
+        /* Animation container */
+        #animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            z-index: 100;
+            font-size: 5rem;
+            color: green;
+            visibility: hidden;
+        }
+
+        .letter {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .letter.grow {
+            transform: scale(200);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Digite os Códigos</h1>
-        <input type="text" id="code1" placeholder="Código 1" oninput="checkCode('code1', 'dica1', 'feedback1')">
+        <h1>Enter Codes</h1>
+
+        <!-- First input with link to the left -->
+        <div class="input-with-link">
+            <a href="./texto.html">Analise-os</a>
+            <input type="text" autocomplete="off" id="code1" placeholder="Code 1" oninput="checkCode('code1', 'feedback1', 'correct1')">
+        </div>
         <div id="feedback1" class="feedback"></div>
 
-        <!-- Área com link ao lado do input -->
+        <!-- Second input with link to the left -->
         <div class="input-with-link">
-            <a href="./cacapalavras.png"><p>Caçai-vos</p></a>
-            <input type="text" id="code2" placeholder="Código 2" oninput="checkCode('code2', 'dica2', 'feedback2')">
+            <a href="./cacapalavras.png">Cace-os</a>
+            <input type="text" autocomplete="off" id="code2" placeholder="Code 2" oninput="checkCode('code2', 'feedback2', 'correct2')">
         </div>
         <div id="feedback2" class="feedback"></div>
 
-        <input type="text" id="code3" placeholder="Código 3" oninput="checkCode('code3', 'dica3', 'feedback3')">
+        <!-- Third input with link to the left -->
+        <div class="input-with-link">
+            <a href="#" onclick="playSound()"; return false;">Devore-os</a>
+            <input type="text" autocomplete="off" id="code3" placeholder="Code 3" oninput="checkCode('code3', 'feedback3', 'correct3')">
+        </div>
         <div id="feedback3" class="feedback"></div>
-
-        <br>
-        <button onclick="finalCheck()">Enviar</button>
     </div>
+
+    <div id="animation" class="hidden">
+        <span class="letter" id="animLetter">heh</span>
+    </div>
+
+    <audio id="successSound" src="./" preload="auto"></audio>
 </body>
 </html>

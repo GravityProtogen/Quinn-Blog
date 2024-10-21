@@ -1,159 +1,79 @@
- // ****************************************************************************
- //*                                                                          *
- //*              SE VOCÊ ESTÁ AQUI, É POR QUE ESTÁ TRAPACEANDO               *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- //*            NÃO UTILIZE NADA DAS INFORMAÇÕES DAQUI PARA O PUZZLE          *
- //*                    EU SABEREI SE VOCÊ TRAPACEOU                          *
- //*                              HEHEHE                                      *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- // ***************************************************************************
+const correctCodes = {
+    code1: "olho",
+    code2: "aranha",
+    code3: "ovelha"
+};
 
+let codesEntered = {
+    correct1: false,
+    correct2: false,
+    correct3: false
+};
 
+function checkCode(inputId, feedbackId, correctFlag) {
+    const input = document.getElementById(inputId).value.toLowerCase();
+    const feedback = document.getElementById(feedbackId);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
- // Função para verificar cada código e exibir feedback
- function checkCode(inputId, correctCode, feedbackId) {
-    var code = document.getElementById(inputId).value.toLowerCase();
-    var feedback = document.getElementById(feedbackId);
-
-    if (code === correctCode) {
-        feedback.innerHTML = "✔️ Código correto";
-        feedback.style.color = "#32CD32"; // Verde para correto
-    } else if (code !== "") {
-        feedback.innerHTML = "❌ Código incorreto";
-        feedback.style.color = "red"; // Vermelho para incorreto
+    if (input === correctCodes[inputId]) {
+        feedback.textContent = "✔️ Correct";
+        feedback.style.color = "#32CD32";
+        codesEntered[correctFlag] = true;
+    } else if (input) {
+        feedback.textContent = "❌ Incorrect";
+        feedback.style.color = "red";
+        codesEntered[correctFlag] = false;
     } else {
-        feedback.innerHTML = ""; // Limpa se vazio
+        feedback.textContent = "";
+        codesEntered[correctFlag] = false;
+    }
+
+    // If all 3 codes are correct, trigger the animation
+    if (codesEntered.correct1 && codesEntered.correct2 && codesEntered.correct3) {
+        triggerAnimation();
     }
 }
+function playSound() {
+    const audio = new Audio('./boo-womp.mp3');
+    audio.play();
+}
 
-// Função para verificar todos os códigos juntos ao enviar
-function finalCheck() {
-    var code1 = document.getElementById('code1').value.toLowerCase();
-    var code2 = document.getElementById('code2').value.toLowerCase();
-    var code3 = document.getElementById('code3').value.toLowerCase();
- // ****************************************************************************
- //*                                                                          *
- //*              SE VOCÊ ESTÁ AQUI, É POR QUE ESTÁ TRAPACEANDO               *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- //*            NÃO UTILIZE NADA DAS INFORMAÇÕES DAQUI PARA O PUZZLE          *
- //*                    EU SABEREI SE VOCÊ TRAPACEOU                          *
- //*                              HEHEHE                                      *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- // ***************************************************************************
- // ****************************************************************************
- //*                                                                          *
- //*              SE VOCÊ ESTÁ AQUI, É POR QUE ESTÁ TRAPACEANDO               *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- //*            NÃO UTILIZE NADA DAS INFORMAÇÕES DAQUI PARA O PUZZLE          *
- //*                    EU SABEREI SE VOCÊ TRAPACEOU                          *
- //*                              HEHEHE                                      *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- // ***************************************************************************
- // ****************************************************************************
- //*                                                                          *
- //*              SE VOCÊ ESTÁ AQUI, É POR QUE ESTÁ TRAPACEANDO               *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- //*            NÃO UTILIZE NADA DAS INFORMAÇÕES DAQUI PARA O PUZZLE          *
- //*                    EU SABEREI SE VOCÊ TRAPACEOU                          *
- //*                              HEHEHE                                      *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- // ***************************************************************************
- // ****************************************************************************
- //*                                                                          *
- //*              SE VOCÊ ESTÁ AQUI, É POR QUE ESTÁ TRAPACEANDO               *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- //*            NÃO UTILIZE NADA DAS INFORMAÇÕES DAQUI PARA O PUZZLE          *
- //*                    EU SABEREI SE VOCÊ TRAPACEOU                          *
- //*                              HEHEHE                                      *
- //*                                                                          *
- //*                                                                          *
- //*                                                                          *
- // ***************************************************************************
+function triggerButton() {
+    // This function simulates a button click
+    playSound(); // Call the playSound function
+}
+function triggerAnimation() {
+    const animationDiv = document.getElementById('animation');
+    const animLetter = document.getElementById('animLetter');
+    const successSound = document.getElementById('successSound');
 
-    var correctCode1 = "olho";
-    var correctCode2 = "aranha";
-    var correctCode3 = "ovelha";
+    animationDiv.style.visibility = "visible"; // Make the animation visible
+    successSound.play();  // Play the success sound
 
-    if (code1 === correctCode1 && code2 === correctCode2 && code3 === correctCode3) {
-        window.location.href = "./resultados/acesso-concedido.html";
-    } else {
-        alert("Um ou mais códigos estão incorretos. Verifique novamente.");
+    let delay = 1000;  // Initial delay (1 second)
+    let minDelay = 100;  // Minimum delay
+    let repetitions = 0;
+    const maxRepetitions = 20;  // Number of times the word will appear before redirecting
+
+    function repeatWord() {
+        animLetter.classList.remove('grow');  // Reset animation
+        setTimeout(() => {
+            animLetter.classList.add('grow');  // Apply grow animation
+        }, 100);  // Delay before applying animation
+
+        // Speed up the repetition by reducing the delay
+        delay *= 0.9;  // Reduce delay by 10% each time
+        if (delay < minDelay) {
+            delay = minDelay;  // Ensure it doesn't go below the minimum
+        }
+
+        repetitions++;
+        if (repetitions < maxRepetitions) {
+            setTimeout(repeatWord, delay);
+        } else {
+            // After max repetitions, redirect to another page
+            window.location.href = "./acesso-concedido.html";
+        }
     }
+
+    repeatWord();  // Start the repeating animation
 }
